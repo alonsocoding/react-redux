@@ -2,9 +2,13 @@
   "name": "ps-redux",
   "description": "React and Redux Pluralsight course by Cory House",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js --port 8080"
+    "start": "run-p start:dev start:api",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 8080",
+    "prestart:api": "node tools/createMockDb",
+    "start:api": "node tools/apiServer.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "4.3.1",
     "immer": "2.1.3",
     "prop-types": "15.7.2",
